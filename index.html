@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <title>Test Local Storage</title>
    
 </head>
 <body>
-    <input type="text" id="inputData"/>
-    <input type="submit" id="save" value="Save to local storage">
-    <input type="submit" id="remove" value="Remove all">
-    <br><br>
-    <span id="output1">
-
-    </span>
-    <div id="i">
-
+    <br>
+    <center><h4>Local Storage</h4>  </center> 
+    <div class="container">
+            <input class="form-control" type="text" id="inputData"/>
+            <input class="btn btn-success" type="submit" id="save" value="Save to local storage">
+            <input class="btn btn-danger" type="submit" id="remove" value="Remove all">
+            <br><br>
+            <span id="output1">
+        
+            </span>
+            <div id="i">
+        
+            </div>
     </div>
     <script>
          query();
@@ -43,7 +49,7 @@
                     console.log(total);
                     $("#i").text("");
                     for(let i = 0; i<localStorage.length;i++){
-                        $("#i").append(localStorage.getItem(localStorage.key(i)) + '<br>');
+                        $("#i").append(localStorage.getItem(localStorage.key(i)) + '<br><hr>');
                     }
             }
             function makeid() {
