@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Test Local Storage</title>
+   
+</head>
+<body>
+    <input type="text" id="inputData"/>
+    <input type="submit" id="save" value="Save to local storage">
+    <input type="submit" id="remove" value="Remove all">
+    <br><br>
+    <span id="output1">
+
+    </span>
+    <div id="i">
+
+    </div>
+    <script>
+         query();
+            $(document).ready(function(){
+                $("#output").text("จำนวน:"+localStorage.length);
+                $("#save").click(function(){
+                   var data = $("#inputData").val();
+                   localStorage.setItem(makeid(), data); 
+                   
+                   query();
+                });
+                $("#remove").click(function(){
+                    localStorage.clear(); 
+                    let total = localStorage.length;
+                    $("#output1").text("จำนวน:"+total);
+                    $("#i").text("");
+
+                });
+            });
+            function query(){
+                var total = localStorage.length;
+                $("#output1").text("จำนวน:"+total);
+                    console.log(total);
+                    $("#i").text("");
+                    for(let i = 0; i<localStorage.length;i++){
+                        $("#i").append(localStorage.getItem(localStorage.key(i)) + '<br>');
+                    }
+            }
+            function makeid() {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (var i = 0; i < 5; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+            }
+        </script>
+</body>
+</html>
